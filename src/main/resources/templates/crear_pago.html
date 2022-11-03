@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
-<title>Registro de estudiantes</title>
+<title>Registro de Pagos</title>
 <!-- CSS only -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
@@ -10,7 +10,7 @@
 
 
 	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-		<a class="navbar-brand" href="#"> Control de estudiantes</a>
+		<a class="navbar-brand" href="#"> Pagos</a>
 		<!-- Navbar links -->
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
@@ -33,12 +33,12 @@
                     </div>
 
                     <div class="form-group">
-                       <label>Apellido : </label>
+                       <label>Estado : </label>
                        <input type="text" name="estado" th:field="*{estado}" class="form-control" placeholder="Ingrese el estado : " required>
                     </div>
 
                     <div class="form-group">
-                       <label>Email : </label>
+                       <label>Pago Total : </label>
                        <input type="number" name="totalpago" th:field="*{totalpago}" class="form-control" placeholder="Digite el monto pagado al empleado : " required>
                     </div>
                    
