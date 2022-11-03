@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Pagos</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+
+
+	<div class="navbar navbar-expand-md bg-dark navbar-dark">
+		<img src="img/pagos.png" alt="Pagos">
+		<h1 class="navbar-brand">Pagos</h1>
+	</div>
+	<div class="container" style="width: 200px;">
+		<br>
+		<h1>UTI S.A.C</h1>
+	</div>
+	<div class="card-body">
+		<form th:action="@{/pagos}" th:object="${pagos}" method="POST">
+			<div class="form-group">
+				<label>Nombre : </label>
+				<input type="text" name="nombre" th:field="*{nombre}" class="form-control" placeholder="Digite su nombre : " required>
+			</div>
+		</form>
+	</div>
+
+
+	<div class="container">
+		<div class="row">
+			<h1>Lista de Pagos</h1>
+		</div>
+		<div class="row">
+		   <div class="col-lg-3">
+		     <a th:href="@{/pagos/nuevo}" class="btn btn-primary btn-sm mb3">Agregar pago</a>
+		   </div>
+		</div>
+		<br>
+		<table class="table table-striped table-bordered">
+			<thead class="table-dark">
+				<tr>
+					<th>ID</th>
+					<th>Nombre</th>
+					<th>Fecha</th>
+					<th>Total pagado</th>
+					<th>Estado</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="pagos : ${pagos}">
+					<td th:text="${pagos.id}">ID</td>
+					<td th:text="${pagos.nombre}">Nombre</td>
+					<td th:text="${pagos.fecha}">Fecha</td>
+					<td th:text="${pagos.totalpago}">Total pago</td>
+					<td th:text="${pagos.estado}">Estado</td>
+					<td>
+					  <a th:href="@{/pagos/editar/{id}(id=${pagos.id})}" class="btn btn-info">Editar</a>
+					  <a th:href="@{/PagoEntidad/{id}(id=${pagos.id})}" class="btn btn-danger">Eliminar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>
