@@ -23,17 +23,17 @@ public class pagoControlador {
 		return "pagos";
 	}
 
-	@GetMapping("/pagos")
+	@GetMapping("/pagos/nuevo")
 	public String mostrarFormularioDeRegistrtarPago(Model modelo) {
 		PagoEntidad pagoEntidadOp = new PagoEntidad();
 		modelo.addAttribute("pagos", pagoEntidadOp);
-		return "pagos";
+		return "crear_pago";
 	}
 
 	@PostMapping("/pagos")
 	public String guardarPago(@ModelAttribute("pagos") PagoEntidad PagoEntidad) {
 		servicio.guardarPago(PagoEntidad);
-		return "/pagos";
+		return "redirect:/pagos";
 	}
 
 	@GetMapping("/pagos/editar/{id}")

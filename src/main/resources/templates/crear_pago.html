@@ -15,7 +15,7 @@
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link"
-					th:href="@{/pagos}">Control de estudiantes</a></li>
+					th:href="@{/pagos}">Control de Pago</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -24,22 +24,22 @@
     <div class="container">
        <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-              <h1 class="text-center">Registro de estudiante</h1>
+              <h1 class="text-center">Registro de Pagos</h1>
               <div class="card-body">
                  <form th:action="@{/pagos}" th:object="${pagos}" method="POST">
                     <div class="form-group">
                        <label>Nombre : </label>
-                       <input type="text" name="nombre" th:field="*{nombre}" class="form-control" placeholder="Digite su nombre : " required>
+                       <input type="text" name="nombre" th:field="*{nombre}" class="form-control" placeholder="Digite el nombre : " required>
                     </div>
-                    
+
                     <div class="form-group">
                        <label>Apellido : </label>
-                       <input type="text" name="fecha" th:field="*{fecha}" class="form-control" placeholder="Digite su apellido : " required>
+                       <input type="text" name="estado" th:field="*{estado}" class="form-control" placeholder="Ingrese el estado : " required>
                     </div>
-                    
+
                     <div class="form-group">
                        <label>Email : </label>
-                       <input type="email" name="totalpago" th:field="*{totalpago}" class="form-control" placeholder="Digite su email : " required>
+                       <input type="number" name="totalpago" th:field="*{totalpago}" class="form-control" placeholder="Digite el monto pagado al empleado : " required>
                     </div>
                    
                     <div class="box-footer">
