@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.app.web.servicio.pagoServicio;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 @Controller
 public class pagoControlador {
 
@@ -48,9 +51,14 @@ public class pagoControlador {
 		PagoEntidad pagoExistente = servicio.obtenerPago(id);
 		pagoExistente.setId(id);
 		pagoExistente.setNombre(PagoEntidad.getNombre());
-		pagoExistente.setFecha(PagoEntidad.getFecha());
+
 		pagoExistente.setTotalpago(PagoEntidad.getTotalpago());
 		pagoExistente.setEstado(PagoEntidad.getEstado());
+
+		String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
+		java.sql.Timestamp  timestamp = java.sql.Timestamp.valueOf(timeStamp);
+
+		pagoExistente.setFecha(timestamp);
 
 		servicio.actualizarPago(pagoExistente);
 		return "redirect:/pagos";
